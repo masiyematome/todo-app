@@ -5,19 +5,24 @@
 }
 
 body{
-    background-color: #f5f5f5;
+    background-color: white;
 }
+
+/**The to do list parent container**/
 
 .todo-container{
     width : 60%;
     position : relative;
     margin : auto;
     top : 50px;
-    border : 1px solid black;
+    background-color : rgb(247, 245, 245);
 }
+
+/**The header part of the the todo container starts here**/
 
 .todo-header{
     padding : 15px;
+    border-bottom : 1px solid gray;
 }
 
 .todo-header h1{
@@ -51,7 +56,7 @@ body{
     background-color : #114b5f;
     color : white;
     cursor: pointer;
-    font-weight: lighter;
+    transition: all ease-in-out 0.5s;
 }
 
 .todo-header button .fa{
@@ -60,4 +65,75 @@ body{
 
 .todo-header button:hover{
     background-color : #0c3947;
+}
+
+/**The body of the to do container starts here**/
+
+.todo-body{
+    padding : 15px;
+}
+
+.todo-body .todo-list{
+    list-style-type:none;
+}
+
+.todo-body .todo-item{
+    background-color : white;
+    margin-top : 8px;
+    position : relative;
+}
+
+.todo-body .todo-text{
+    padding : 5px;
+    font-family: 'poppins',sans-serif;
+    cursor: pointer;
+}
+
+.todo-body .todo-text::before{
+    content : "";
+    border-width : 5px;
+    border : 1px solid black;
+    height : 20px;
+    width : 20px;
+    display : inline-block;
+    position : relative;
+    top : 5px;
+    margin-right : 5px;
+    border-radius: 50%;
+}
+
+.todo-body .trash-button {
+    position : absolute;
+    top : 0%;
+    right : 0%;
+    font-size : 20px;
+    border : none;
+    outline : none;
+    padding : 8px;
+    background-color: transparent;
+    color : rgb(77, 77, 77);
+    cursor: pointer;
+    transition: all ease-in-out 0.5s;
+}
+
+.todo-body .trash-button:hover{
+    color : #c94e4e;
+}
+
+.todo-body .trash-button .fa{
+    pointer-events: none;
+}
+
+
+/**The footer of the todo container starts here**/
+
+.todo-footer{
+    border-top : 1px solid gray;
+    padding : 15px;
+    color : #114b5f;
+    text-align : center;
+}
+
+.todo-footer .fa{
+    color : #c94e4e;
 }
