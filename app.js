@@ -54,12 +54,14 @@ function deleteOrMark(ev) {
         const todo = clicked.parentElement;
         todo.classList.add("fall");
 
+        removeTask(todo);
+
         todo.addEventListener("transitionend", () => {
             todo.remove();
         })
     }
 
-    else {
+    else if(clicked.classList[0] == "todo-text"){
         const todo = clicked.parentElement;
         todo.classList.toggle("checked");
     }
@@ -69,7 +71,6 @@ function deleteOrMark(ev) {
 /*Save the tasks to a local storage */
 
 function tasksLocalStorage(task){
-
     let tasks;
 
     if(localStorage.getItem("tasks") === null){
@@ -82,14 +83,12 @@ function tasksLocalStorage(task){
 
     tasks.push(task);
     localStorage.setItem("tasks",JSON.stringify(tasks));
-    
 }
 
 /*Get tasks from local storage and display them */
 
 function retrieveTasks(){
-    
-    let tasks ;
+    let tasks;
 
     if(localStorage.getItem("tasks") === null){
         tasks = [];
@@ -117,4 +116,25 @@ function retrieveTasks(){
 
         todoFooter.style.display = "block";
     })
+
+}
+
+
+/*Remove the task from the local storage */
+
+function removeTask(task){
+    let tasks;
+
+    if(localStorage.getItem("tasks") === null){
+        tasks = [];
+    }
+
+    else{
+        tasks = JSON.parse(localStorage.getItem("tasks"));
+    }
+
+    const taskIndex = task.children[0].innerText;
+    tasks.splice(tasks.indexOf(taskIndex),1);
+    localStorage.setItem("tasks",JSON.stringify(tasks));
+
 }
