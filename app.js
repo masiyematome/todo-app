@@ -7,6 +7,7 @@ const todoFooter = document.querySelector(".todo-footer");
 
 //Event Listeners
 
+document.addEventListener("DOMContentLoaded",retrieveTasks);
 todoButton.addEventListener("click", addTask);
 todoList.addEventListener("click", deleteOrMark);
 
@@ -82,4 +83,38 @@ function tasksLocalStorage(task){
     tasks.push(task);
     localStorage.setItem("tasks",JSON.stringify(tasks));
     
+}
+
+/*Get tasks from local storage and display them */
+
+function retrieveTasks(){
+    
+    let tasks ;
+
+    if(localStorage.getItem("tasks") === null){
+        tasks = [];
+    }
+
+    else{
+        tasks = JSON.parse(localStorage.getItem("tasks"));
+    }
+
+    tasks.forEach(function(task){
+        const todoItem = document.createElement("div");
+        todoItem.classList.add("todo-item");
+
+        const todoText = document.createElement("li");
+        todoText.classList.add("todo-text");
+        todoText.innerText = task;
+        todoItem.appendChild(todoText);
+
+        const trashButton = document.createElement("button");
+        trashButton.classList.add("trash-button");
+        trashButton.innerHTML = '<i class = "fa fa-trash"></i>';
+        todoItem.appendChild(trashButton);
+
+        todoList.appendChild(todoItem);
+
+        todoFooter.style.display = "block";
+    })
 }
