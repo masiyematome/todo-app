@@ -28,6 +28,7 @@ function addTask() {
         todoText.classList.add("todo-text");
         todoText.innerText = todoInput.value;
         todoItem.appendChild(todoText);
+        tasksLocalStorage(todoInput.value);
 
         const trashButton = document.createElement("button");
         trashButton.classList.add("trash-button");
@@ -62,4 +63,23 @@ function deleteOrMark(ev) {
         todo.classList.toggle("checked");
     }
 
+}
+
+/*Save the tasks to a local storage */
+
+function tasksLocalStorage(task){
+
+    let tasks;
+
+    if(localStorage.getItem("tasks") === null){
+        tasks = [];
+    }
+
+    else{
+        tasks = JSON.parse(localStorage.getItem("tasks"));
+    }
+
+    tasks.push(task);
+    localStorage.setItem("tasks",JSON.stringify(tasks));
+    
 }
