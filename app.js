@@ -12,6 +12,8 @@ todoList.addEventListener("click", deleteOrMark);
 
 //Functions
 
+/*Add a new task*/
+
 function addTask() {
 
     if (todoInput.value == "") {
@@ -41,12 +43,18 @@ function addTask() {
 
 }
 
+/*Delete or checked the seleted item */
+
 function deleteOrMark(ev) {
     const clicked = ev.target;
 
     if (clicked.classList[0] == "trash-button") {
         const todo = clicked.parentElement;
-        todo.remove();
+        todo.classList.add("fall");
+
+        todo.addEventListener("transitionend", () => {
+            todo.remove();
+        })
     }
 
     else {

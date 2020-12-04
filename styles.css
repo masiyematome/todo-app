@@ -130,6 +130,8 @@ body{
     transition : all ease .4s;
 }
 
+/*Pseudo element for the clicked or completed item*/
+
 .checked::before{
     content : "";
     width : 5px;
@@ -141,6 +143,14 @@ body{
     left : 1%;
     border-width: 0px 2px 2px 0px;
     transform : rotate(45deg);
+}
+
+/*The transition for the deleted item*/
+
+.fall{
+    opacity : 0;
+    transform: translate(20%) rotateZ(5deg);
+    transition : all ease .5s;
 }
 
 
