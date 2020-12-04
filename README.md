@@ -1,3 +1,3 @@
 # To Do App
 
-More information about the app will go here
+This is a todo list app that allows the user to add a task,mark/unmark it and delete it when completed.

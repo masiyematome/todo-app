@@ -83,6 +83,7 @@ function tasksLocalStorage(task){
 
     tasks.push(task);
     localStorage.setItem("tasks",JSON.stringify(tasks));
+
 }
 
 /*Get tasks from local storage and display them */
@@ -116,7 +117,6 @@ function retrieveTasks(){
 
         todoFooter.style.display = "block";
     })
-
 }
 
 
@@ -136,5 +136,4 @@ function removeTask(task){
     const taskIndex = task.children[0].innerText;
     tasks.splice(tasks.indexOf(taskIndex),1);
     localStorage.setItem("tasks",JSON.stringify(tasks));
-
 }
