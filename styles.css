@@ -11,7 +11,7 @@ body{
 /**The to do list parent container**/
 
 .todo-container{
-    width : 60%;
+    width : 70%;
     position : relative;
     margin : auto;
     top : 50px;
@@ -93,11 +93,11 @@ body{
     content : "";
     border-width : 5px;
     border : 1px solid black;
-    height : 20px;
-    width : 20px;
+    height : 15px;
+    width : 15px;
     display : inline-block;
     position : relative;
-    top : 5px;
+    top : 3px;
     margin-right : 5px;
     border-radius: 50%;
 }
@@ -124,6 +124,25 @@ body{
     pointer-events: none;
 }
 
+.checked{
+    opacity : 0.5;
+    text-decoration: line-through;
+    transition : all ease .4s;
+}
+
+.checked::before{
+    content : "";
+    width : 5px;
+    height : 10px;
+    display: inline-block;
+    border : 1.5px solid black;
+    position : absolute;
+    top : 28%;
+    left : 1%;
+    border-width: 0px 2px 2px 0px;
+    transform : rotate(45deg);
+}
+
 
 /**The footer of the todo container starts here**/
 
@@ -132,6 +151,7 @@ body{
     padding : 15px;
     color : #114b5f;
     text-align : center;
+    display : none;
 }
 
 .todo-footer .fa{
