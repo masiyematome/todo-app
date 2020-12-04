@@ -140,7 +140,7 @@ body{
     border : 1.5px solid black;
     position : absolute;
     top : 28%;
-    left : 1%;
+    left : 9px;
     border-width: 0px 2px 2px 0px;
     transform : rotate(45deg);
 }
@@ -166,4 +166,18 @@ body{
 
 .todo-footer .fa{
     color : #c94e4e;
+}
+
+/**Media queries for responsiveness*/
+
+@media (max-width : 1100px){
+    .todo-container{
+        width : 80%;
+    }
+}
+
+@media (max-width : 870px){
+    .todo-container{
+        width : 98%;
+    }
 }
